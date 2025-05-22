@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcards</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="flashcard-container">
+    <h1>Flashcards</h1>
+
+    <h2>Selecione um Flashcard</h2>
+    <div id="card-list" class="card-list"></div>
+    
+    <div id="card" class="card">
+      <div class="front">
+        <p id="question">Pergunta</p>
+      </div>
+      <div class="back">
+        <p id="answer">Resposta</p>
+      </div>
+    </div>
+
+    <button id="flip-card">Mostrar resposta</button>
+    
+    <form id="add-form">
+        <h3>Adicionar novo flashcard</h3>
+        <input type="text" id="new-question" placeholder="Digite a pergunta" required />
+        <input type="text" id="new-answer" placeholder="Digite a resposta" required />
+        <button type="submit">Adicionar</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
