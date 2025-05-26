@@ -82,7 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return alert("Nenhum card para praticar.");
     }
 
-    practiceCards = [...flashcards];
+    //                              ordena com base no atributo difficulty, na ordem decrescente
+    practiceCards = [...flashcards].sort((a, b) => b.difficulty - a.difficulty);
     practiceIndex = 0;
     practiceRight = 0;
     practiceWrong = 0;
@@ -100,6 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('practice-right').addEventListener('click', () => {
     practiceCards[practiceIndex].check=true;
     practiceRight++;
+    var original;
+    for (let index = 0; index < practiceCards.length; index++) {
+      if (flashcards[index].question==practiceCards[practiceIndex].question) {
+        original=flashcards[index];
+      }
+    }
+    original.difficulty = original.difficulty - 0.1;
+    saveFlashcards();
     disableFeedbackButtons();
   });
 
@@ -107,6 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('practice-wrong').addEventListener('click', () => {
     practiceCards[practiceIndex].check=false;
     practiceWrong++;
+    var original;
+    for (let index = 0; index < practiceCards.length; index++) {
+      if (flashcards[index].question==practiceCards[practiceIndex].question) {
+        original=flashcards[index];
+      }
+    }
+    original.difficulty = original.difficulty + 0.1;
+    saveFlashcards();
     disableFeedbackButtons();
   });
 
@@ -165,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newAnswer = document.getElementById('new-answer').value.trim();
 
     if (newQuestion && newAnswer) {
-      flashcards.push({ question: newQuestion, answer: newAnswer, check: null });
+      flashcards.push({ question: newQuestion, answer: newAnswer, check: null, difficulty: 2.5 });
       currentCard = flashcards.length - 1;
       saveFlashcards();
       displayCard();
@@ -230,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
       howToUse=howToUse+'\n3. Clique em Selecionar card para ver, editar e/ou excluir os cards existentes;';
       howToUse=howToUse+'\n4. Clique em ✏️ em um card para editá-lo;';
       howToUse=howToUse+'\n5. Clique em ❌ em um card para deletá-lo;';
-      howToUse=howToUse+'\n6. Use o botão Praticar para iniciar uma revisão espaçada;';
+      howToUse=howToUse+'\n6. Use o botão Praticar para iniciar uma revisão.';
     }
     else{
       howToUse= 'Como funciona a prática: \n1. Aparecerá um flashcard com uma pergunta;';
@@ -238,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
       howToUse=howToUse+'\n3. Clique em Acertou ou Errou;';
       howToUse=howToUse+'\n4. Clique Próximo para ver um novo card, mas você só poderá passar pra um próximo caso tenha respondido o card atual;';
       howToUse=howToUse+'\n5. Ao final, poderá ver quantas você acertou e quantas errou;';
+      howToUse=howToUse+'\nAVISO: a ordem das perguntas se adapta à suas respostas, colocando as que você demonstrar ter mais dificuldade na frente.';
       
     }
     confirm(howToUse);
