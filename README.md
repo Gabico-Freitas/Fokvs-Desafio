@@ -1,1 +1,2 @@
 # Desafio Técnico – Plataforma de Revisão Espaçada com Flashcards (Fokvs)
+Para usar o App, descompacte o .zip entre na pasta e clique em index.html que deverá abrir em seu navegador. Também é possível clicar com o botão direito e mandar abrir com seu navegador de preferência, espera-se que rode em qualquer um desde que tenha suporte pra html e javaScript. Caso tenha alguma dúvida de como usar o app durante sua execução, aperte o botão ❔ (interrogação) para uma ajuda básica.
