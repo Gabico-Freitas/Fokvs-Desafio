@@ -1,5 +1,6 @@
+/* ======Configurações gerais da página====== */
 body {
-  font-family: sans-serif;
+  font-family:Verdana;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,16 +8,35 @@ body {
   background: linear-gradient(135deg, #8eccc9, #5ea9a8);
   margin: 0;
 }
+/* ======Configurações gerais da página====== */
 
+/* ======Configurações da parte que vão os cards====== */
 .flashcard-container {
+  width: 600px;
   text-align: center;
   background-color: white;
   padding: 30px;
   border-radius: 40px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  max-width: 360px;
+}
+.header-container{
+  margin: auto;
+  width: fit-content;
+  align-items: center;
+  display: flex;
+  gap: 1px;
 }
 
+#score-container {
+  visibility:hidden;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: black;
+  font-weight: bold;
+}
+/* ======Configurações da parte que vão os cards====== */
+
+/* ======Configurações dos cards====== */
 .card {
   width: 100%;
   height: 200px;
@@ -38,6 +58,7 @@ body {
   border-radius: 15px;
   background: rgba(154, 218, 220, 0.9);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
@@ -48,7 +69,40 @@ body {
 .card .back {
   transform: rotateY(180deg);
 }
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
 
+#card-list-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#card-list-container.expanded {
+  max-height: 300px; 
+}
+
+.card-button {
+  background-color: #319c9b;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.card-button:hover {
+  background-color: #a3d4d3;
+}
+/* ======Configurações dos cards====== */
+
+/* ======Configurações gerais dos botões====== */
 button {
   margin: 10px;
   padding: 12px 25px;
@@ -68,7 +122,29 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
+/* ======Configurações gerais dos botões====== */
 
+/* ======Configurações de botões mais específicos====== */
+.feedback-buttons {
+  backface-visibility: hidden;
+  margin: 10px;
+  display: flex;
+  gap: 10px;
+}
+.feedback-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+#mark-wrong {
+  background-color: #319c9b;
+}
+/* ======Configurações de botões mais específicos====== */
+
+/* ======Configurações dos forms para adicionar cards====== */
 form {
   margin-top: 20px;
   display: flex;
@@ -87,24 +163,4 @@ form button[type="submit"] {
   background-color: #319c9b;
   font-weight: bold;
 }
-.card-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.card-button {
-  background-color: #319c9b;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
-  font-size: 0.95em;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.card-button:hover {
-  background-color: #a3d4d3;
-}
+/* ======Configurações dos forms para adicionar cards====== */
