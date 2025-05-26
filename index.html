@@ -7,29 +7,81 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="flashcard-container">
-    <h1>Flashcards</h1>
 
-    <h2>Selecione um Flashcard</h2>
-    <div id="card-list" class="card-list"></div>
-    
+  <div class="flashcard-container">
+    <div class="header-container">
+      <h1>Flashcards</h1>
+      <button id="help">❔</button>
+    </div>
+    <div id="score-container">
+      Acertos: <span id="score">0/0</span>
+    </div>
+
+    <!-- Parte que mostra os cards escritos -->
+    <button id="toggle-card-list">Selecionar Card ⇩</button>
+    <div id="card-list-container" class="collapsed">
+      <div id="card-list" class="card-list"></div>
+    </div>
+
+    <!-- Parte que mostra os cards -->
     <div id="card" class="card">
+      
       <div class="front">
         <p id="question">Pergunta</p>
+        <div class="card-actions">
+          <button id="edit" data-index="0">✏️</button>
+          <button id="delete" data-index="0">❌</button>
+        </div>
       </div>
       <div class="back">
         <p id="answer">Resposta</p>
+        <div class="feedback-buttons">
+          <button id="right">Acertou</button>
+          <button id="wrong">Errou</button>
+        </div>
       </div>
-    </div>
-
-    <button id="flip-card">Mostrar resposta</button>
+      </div>
+      
+      <div id="bottom-buttons">
+        <button id="flip-card">Virar card</button>
+        <button id="practice">Praticar</button>
+      </div>
     
+      <!-- Parte para praticar com os cards, inicialmente invisível -->
+      <div id="practice-section" style="display: none;">
+        <h2>Praticando...</h2>
+        <div id="practice-card" class="card">
+          <div class="front">
+            <p id="practice-question">Pergunta</p>
+          </div>
+          <div class="back">
+            <p id="practice-answer">Resposta</p>
+            <div class="feedback-buttons">
+              <button id="practice-right">Acertou</button>
+              <button id="practice-wrong">Errou</button>
+            </div>
+          </div>
+        </div>
+      
+        <button id="practice-flip-card">Virar card</button>
+        <button id="next-practice-card">Próximo</button>
+      </div>
+
+      <!-- Parte que mostra os resultados da prática -->
+      <div id="practice-summary" style="display: none;">
+        <h3>Resumo</h3>
+        <p id="practice-stats"></p>
+        <button onclick="location.reload()">Voltar</button>
+      </div>
+
+    <!-- Parte para adicionar um card -->
     <form id="add-form">
         <h3>Adicionar novo flashcard</h3>
         <input type="text" id="new-question" placeholder="Digite a pergunta" required />
         <input type="text" id="new-answer" placeholder="Digite a resposta" required />
         <button type="submit">Adicionar</button>
     </form>
+
   </div>
 
   <script src="script.js"></script>
