@@ -242,15 +242,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('help').addEventListener('click',()=>{
     var howToUse;
     if(practiceCards.length==0){
-      howToUse= 'Como Usar: \n1. Clique em Adicionar para criar um novo flashcard;';
+      howToUse= 'Como Usar: \n1. Clique em Adicionar para criar um novo card;';
       howToUse=howToUse+'\n2. Clique em Virar card para ver a resposta;';
       howToUse=howToUse+'\n3. Clique em Selecionar card para ver, editar e/ou excluir os cards existentes;';
       howToUse=howToUse+'\n4. Clique em ✏️ em um card para editá-lo;';
       howToUse=howToUse+'\n5. Clique em ❌ em um card para deletá-lo;';
-      howToUse=howToUse+'\n6. Use o botão Praticar para iniciar uma revisão.';
+      howToUse=howToUse+'\n6. Use o botão Praticar para iniciar uma revisão;';
+      howToUse=howToUse+'\nAVISO: ao clicar em prática o menu de Como Usar será adaptado para o modo de prática.';
     }
     else{
-      howToUse= 'Como funciona a prática: \n1. Aparecerá um flashcard com uma pergunta;';
+      howToUse= 'Como funciona a prática: \n1. Aparecerá um card com uma pergunta;';
       howToUse=howToUse+'\n2. Pense um pouco sobre a respota e depois clique em Virar card para ver se acertou;';
       howToUse=howToUse+'\n3. Clique em Acertou ou Errou;';
       howToUse=howToUse+'\n4. Clique Próximo para ver um novo card, mas você só poderá passar pra um próximo caso tenha respondido o card atual;';
